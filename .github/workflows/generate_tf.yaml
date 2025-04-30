@@ -7,7 +7,7 @@ on:
 
 jobs:
   clone-repo:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu/python:3.12-24.04_stable
     steps:
       - name: Checkout current repository
         uses: actions/checkout@v4
@@ -20,3 +20,18 @@ jobs:
         with:
           repository: giorgiogrillini-capgemini/ddlforge-cli
           token: ${{ secrets.PAT_DDLFORGE }}
+
+      - name: Installing venv and launching ddlforge-cli
+        run: |
+          cd ddlforge-cli
+          pipx install uv
+          uv pip install -e .
+          echo "producing settings.yaml"
+          ddlforge settings --google_project_id premi0436563-gitenter\
+           --policy_location europe-west9 --write_to settings.yaml\
+           --env_label dev --key_ring_name datacloud-cstore-europe-west9-main-dev\
+           --json_schema_asset_dir table-schemas 1918308629030057169
+          echo "producing settings.yaml"
+          ddlforge tf-table-configs src/tests/sample_2.ddl settings.yaml ./tf
+
+
