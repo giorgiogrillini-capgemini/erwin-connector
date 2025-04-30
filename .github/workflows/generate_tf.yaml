@@ -28,8 +28,8 @@ jobs:
       - name: Installing venv and launching ddlforge-cli
         run: |
           cd ddlforge-cli
-          apt update -y
-          apt install -y pipx
+          sudo apt-get update -y
+          sudo apt-get install -y pipx
           pipx ensurepath
           pipx install uv
           uv python install 3.12
