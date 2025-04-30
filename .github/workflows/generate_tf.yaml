@@ -7,7 +7,7 @@ on:
 
 jobs:
   clone-repo:
-    runs-on: ubuntu/python:3.12-24.04_stable
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout current repository
         uses: actions/checkout@v4
@@ -24,7 +24,11 @@ jobs:
       - name: Installing venv and launching ddlforge-cli
         run: |
           cd ddlforge-cli
+          apt update -y
+          apt install -y pipx
+          pipx ensurepath
           pipx install uv
+          uv python install 3.12
           uv pip install -e .
           echo "producing settings.yaml"
           ddlforge settings --google_project_id premi0436563-gitenter\
