@@ -33,8 +33,9 @@ jobs:
           pipx ensurepath
           pipx install uv
           uv python install 3.12
-          uv pip install -e .
+          uv venv --python 3.12
           source .venv/bin/activate
+          uv pip install -e .
           echo "producing settings.yaml"
           ddlforge settings --google_project_id premi0436563-gitenter\
            --policy_location europe-west9 --write_to settings.yaml\
