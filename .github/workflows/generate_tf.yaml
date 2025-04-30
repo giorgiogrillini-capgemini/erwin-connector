@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current repository
-        uses: actions/checkout@v4@${GITHUB_REF}
+        uses: actions/checkout@${GITHUB_REF}
         with:
           path: updates-to-merge
 
       #TODO replace it downloading pipy private package
       - name: Clone external repository to get ddlforge-cli
-        uses: actions/checkout@v4@main
+        uses: actions/checkout@main
         with:
           repository: giorgiogrillini-capgemini/ddlforge-cli
           token: ${{ secrets.PAT_DDLFORGE }}
