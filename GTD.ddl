@@ -1,7 +1,12 @@
+CREATE SCHEMA test_ggrillin_erwin
+OPTIONS(
+	LOCATION = "europe-west9",
+	DESCRIPTION = "Test Dataset for erwin automation"
+);
 
-CREATE TABLE Absence_Request;
+CREATE TABLE test_ggrillin_erwin.Absence_Request;
 
-CREATE TABLE Allocation
+CREATE TABLE test_ggrillin_erwin.Allocation
 (
 	Allocation_ID STRING NOT NULL,
 	Project_Code STRING,
@@ -35,7 +40,7 @@ CREATE TABLE Allocation
 	Local_ID STRING
 );
 
-CREATE TABLE BL_Skillset
+CREATE TABLE test_ggrillin_erwin.BL_Skillset
 (
 	BLSkillset_ID STRING NOT NULL,
 	Sub_Practice1_ID STRING,
@@ -43,17 +48,17 @@ CREATE TABLE BL_Skillset
 	SkillSet_ID STRING
 );
 
-CREATE TABLE BL_Structure;
+CREATE TABLE test_ggrillin_erwin.BL_Structure;
 
-CREATE TABLE BU_Structure;
+CREATE TABLE test_ggrillin_erwin.BU_Structure;
 
-CREATE TABLE Certification;
+CREATE TABLE test_ggrillin_erwin.Certification;
 
-CREATE TABLE Cost_Center;
+CREATE TABLE test_ggrillin_erwin.Cost_Center;
 
-CREATE TABLE Cost_Rate;
+CREATE TABLE test_ggrillin_erwin.Cost_Rate;
 
-CREATE TABLE Customer
+CREATE TABLE test_ggrillin_erwin.Customer
 (
 	Customer_ID STRING NOT NULL,
 	Business_Partner_Master_Key STRING NOT NULL,
@@ -61,9 +66,9 @@ CREATE TABLE Customer
 	Ultimate_Parent_Account_ID STRING
 );
 
-CREATE TABLE Delivery_Role;
+CREATE TABLE test_ggrillin_erwin.Delivery_Role;
 
-CREATE TABLE Employee
+CREATE TABLE test_ggrillin_erwin.Employee
 (
 	Global_Group_ID STRING NOT NULL,
 	PERNR_ID STRING NOT NULL,
@@ -91,9 +96,9 @@ CREATE TABLE Employee
 	Office_Base_Location_ID STRING
 );
 
-CREATE TABLE Grade;
+CREATE TABLE test_ggrillin_erwin.Grade;
 
-CREATE TABLE Holiday_Calendar
+CREATE TABLE test_ggrillin_erwin.Holiday_Calendar
 (
 	Holiday_Calendar_ID STRING NOT NULL,
 	Holiday_Date STRING,
@@ -101,11 +106,11 @@ CREATE TABLE Holiday_Calendar
 	Holiday_Name STRING
 );
 
-CREATE TABLE Identity_Documents;
+CREATE TABLE test_ggrillin_erwin.Identity_Documents;
 
-CREATE TABLE Legal_Structure;
+CREATE TABLE test_ggrillin_erwin.Legal_Structure;
 
-CREATE TABLE Location
+CREATE TABLE test_ggrillin_erwin.Location
 (
 	Office_Base_Location_ID STRING NOT NULL,
 	State STRING NOT NULL,
@@ -120,7 +125,7 @@ CREATE TABLE Location
 	Longitude STRING
 );
 
-CREATE TABLE Opportunity
+CREATE TABLE test_ggrillin_erwin.Opportunity
 (
 	Opportunity_ID STRING NOT NULL,
 	Ultimate_Parent_Account_ID STRING,
@@ -133,17 +138,17 @@ CREATE TABLE Opportunity
 	Customer_ID STRING
 );
 
-CREATE TABLE People
+CREATE TABLE test_ggrillin_erwin.People
 (
 	Holiday_Calendar_ID STRING
 );
 
-CREATE TABLE People_Allocation
+CREATE TABLE test_ggrillin_erwin.People_Allocation
 (
 	Allocation_ID STRING NOT NULL
 );
 
-CREATE TABLE Professional_Community
+CREATE TABLE test_ggrillin_erwin.Professional_Community
 (
 	Professional_Community_Code STRING NOT NULL,
 	Professioanl_Community_Name STRING,
@@ -151,7 +156,7 @@ CREATE TABLE Professional_Community
 	Effective_End_Date STRING
 );
 
-CREATE TABLE Project
+CREATE TABLE test_ggrillin_erwin.Project
 (
 	Project_Code STRING NOT NULL,
 	Production_Unit_ID STRING NOT NULL,
@@ -175,7 +180,7 @@ CREATE TABLE Project
 	Cross_Charge_Enabled_Flag STRING
 );
 
-CREATE TABLE Project_Type
+CREATE TABLE test_ggrillin_erwin.Project_Type
 (
 	Project_Type_ID STRING NOT NULL,
 	Project_Code STRING NOT NULL,
@@ -184,9 +189,9 @@ CREATE TABLE Project_Type
 	Project_Type_End_Date STRING
 );
 
-CREATE TABLE Role;
+CREATE TABLE test_ggrillin_erwin.Role;
 
-CREATE TABLE Role
+CREATE TABLE test_ggrillin_erwin.Role
 (
 	Role_Code STRING NOT NULL,
 	Role_Family_Code STRING NOT NULL,
@@ -195,7 +200,7 @@ CREATE TABLE Role
 	Role_Status STRING
 );
 
-CREATE TABLE Role_Family
+CREATE TABLE test_ggrillin_erwin.Role_Family
 (
 	Role_Family_Code STRING NOT NULL,
 	Professional_Community_Code STRING NOT NULL,
@@ -206,11 +211,11 @@ CREATE TABLE Role_Family
 	Role_Family_Status STRING
 );
 
-CREATE TABLE Seperation;
+CREATE TABLE test_ggrillin_erwin.Seperation;
 
-CREATE TABLE Skills;
+CREATE TABLE test_ggrillin_erwin.Skills;
 
-CREATE TABLE SkillSet
+CREATE TABLE test_ggrillin_erwin.SkillSet
 (
 	SkillSet_ID STRING NOT NULL,
 	Project_Role_ID STRING,
