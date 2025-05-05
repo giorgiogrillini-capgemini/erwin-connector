@@ -15,6 +15,14 @@ jobs:
           ref: ${{ github.ref }}
           path: updates-to-merge
 
+      - name: Clone external repo secrets
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          repository: giorgiogrillini-capgemini/secrets
+          token: ${{ secrets.PAT_DDLFORGE }}
+          path: secrets
+
       #TODO replace it downloading pipy private package
       - name: Clone external repository to get ddlforge-cli
         uses: actions/checkout@v4
@@ -24,18 +32,27 @@ jobs:
           token: ${{ secrets.PAT_DDLFORGE }}
           path: ddlforge-cli
 
-      #TODO use cache!!
+      #TODO use cache!! and/or predefined artifact registry image
       - name: Installing venv and launching ddlforge-cli
         run: |
           cd ddlforge-cli
           sudo apt-get update -y
-          sudo apt-get install -y pipx
+          sudo apt-get install -y pipx age
           pipx ensurepath
           pipx install uv
           uv python install 3.12
           uv venv --python 3.12
           source .venv/bin/activate
           uv pip install -e .
+          echo "Decrypting SA"
+          curl -LO https://github.com/getsops/sops/releases/download/v3.10.2/sops-v3.10.2.linux.amd64
+          mv sops-v3.10.2.linux.amd64 /usr/local/bin/sops
+          chmod +x /usr/local/bin/sops
+          echo ${{ secrets.AGE_PRIVATE }} > ci.key
+          export SOPS_AGE_KEY_FILE=ci.key
+          sops decrypt ../sa-keys/git-datacloud-dev-owner-sa.json > sa.json
+          echo "Authenticating with google SA"
+          gcloud auth activate-service-account --key-file sa.json
           echo "producing settings.yaml"
           ddlforge settings --google_project_id premi0436563-gitenter\
            --policy_location europe-west9 --write_to settings.yaml\
