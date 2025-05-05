@@ -50,7 +50,7 @@ jobs:
           chmod +x /usr/local/bin/sops
           echo ${{ secrets.AGE_PRIVATE }} > ci.key
           export SOPS_AGE_KEY_FILE=ci.key
-          sops decrypt ../sa-keys/git-datacloud-dev-owner-sa.json > sa.json
+          sops decrypt ../secrets/sa-keys/git-datacloud-dev-owner-sa.json > sa.json
           echo "Authenticating with google SA"
           gcloud auth activate-service-account --key-file sa.json
           echo "producing settings.yaml"
