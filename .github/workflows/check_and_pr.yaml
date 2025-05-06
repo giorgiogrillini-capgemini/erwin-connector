@@ -67,7 +67,10 @@ jobs:
           cd ../updates-to-merge
           git config --local user.name "GitHub Action"
           git config --local user.email "action@github.com"
-          gh pr create --base main --head updates-to-merge --title "Merging changes on the DDL updates for version: 0.1.${{ github.run_number }}" --body "Automated PR from updates-to-merge branch."
-
+          if gh pr list --head updates-to-merge | grep -q 'updates-to-merge'; then
+            echo "Pull request already exists."
+          else
+            gh pr create --base main --head updates-to-merge --title "Merging changes on the DDL updates for version: 0.1.${{ github.run_number }}" --body "Automated PR from updates-to-merge branch."
+          fi
 
 

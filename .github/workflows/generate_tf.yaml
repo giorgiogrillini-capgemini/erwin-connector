@@ -75,7 +75,10 @@ jobs:
           echo "Pushing branch 'terraform-automation'"
           git push origin terraform-automation-${{ github.run_number }}
           echo "Creating Pull Request in ddlforge-cli repository"
-          gh pr create --base main --head terraform-automation-${{ github.run_number }} --title "Terraform scripts update - version: 0.1.${{ github.run_number }}" --body "Automated PR for terraform scripts changes."
-
+          if gh pr list --head terraform-automation-${{ github.run_number }} | grep -q 'terraform-automation-${{ github.run_number }}'; then
+            echo "Pull request already exists."
+          else
+            gh pr create --base main --head terraform-automation-${{ github.run_number }} --title "Terraform scripts update - version: 0.1.${{ github.run_number }}" --body "Automated PR for terraform scripts changes."
+          fi
 
 
