@@ -34,6 +34,8 @@ jobs:
 
       #TODO use cache!! and/or predefined artifact registry image
       - name: Installing venv and launching ddlforge-cli to check if the ddl can be generated
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_DDLFORGE }}
         run: |
           cd ddlforge-cli
           sudo apt-get update -y
