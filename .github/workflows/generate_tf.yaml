@@ -62,11 +62,20 @@ jobs:
            --env_label dev --key_ring_name datacloud-cstore-europe-west9-main-dev\
            --json_schema_asset_dir table-schemas 1918308629030057169
           echo "creating tf files"
-          ddlforge tf-table-configs src/tests/sample_2.ddl settings.yaml ./tf
+          
           echo "opening a PR to merge new changes to main"
-          cd ../updates-to-merge
           git config --local user.name "GitHub Action"
-          gh pr create --base main --head updates-to-merge --title "Merging changes on the DDL updates for version: ${{ github.run_number }}" --body "Automated PR from updates-to-merge branch."
+          git config --local user.email "action@github.com"
+          echo "Creating new branch 'terraform-automation'"
+          git checkout -b terraform-automation-${{ github.run_number }}
+          ddlforge tf-table-configs src/tests/sample_2.ddl settings.yaml ./tf
+          echo "Adding terraform scripts to branch"
+          git add tf/
+          git commit -m "Add terraform scripts - version: 0.1.${{ github.run_number }}"
+          echo "Pushing branch 'terraform-automation'"
+          git push origin terraform-automation-${{ github.run_number }}
+          echo "Creating Pull Request in ddlforge-cli repository"
+          gh pr create --base main --head terraform-automation-${{ github.run_number }} --title "Terraform scripts update - version: 0.1.${{ github.run_number }}" --body "Automated PR for terraform scripts changes."
 
 
 
