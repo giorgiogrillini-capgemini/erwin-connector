@@ -68,7 +68,7 @@ jobs:
           git config --local user.email "action@github.com"
           echo "Creating new branch 'terraform-automation'"
           git checkout -b terraform-automation-${{ github.run_number }}
-          ddlforge tf-table-configs src/tests/sample_2.ddl settings.yaml ./tf
+          ddlforge tf-table-configs ../updates-to-merge/GTD.ddl settings.yaml ./tf
           echo "Adding terraform scripts to branch"
           git add tf/
           git commit -m "Add terraform scripts - version: 0.1.${{ github.run_number }}"
