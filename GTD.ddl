@@ -59,6 +59,8 @@ CREATE TABLE test_ggrillin_erwin.Cost_Center;
 
 CREATE TABLE test_ggrillin_erwin.Cost_Rate;
 
+
+
 CREATE TABLE test_ggrillin_erwin.Customer
 (
 	Customer_ID STRING NOT NULL,
