@@ -21,7 +21,7 @@ CREATE TABLE test_ggrillin_erwin.Allocation
 	Allocation_Type STRING,
 	Allocation_Status STRING,
 	Allocation_Start_Date STRING OPTIONS(DESCRIPTION = "@sec1.simple-personal-text"),
-	Allocation_End_Date STRING,
+	Allocation_End_Date STRING OPTIONS(DESCRIPTION = "@sec1.simple-personal-text"),
 	Allocation_Last_Modified_Date STRING,
 	Allocation_Percentage STRING,
 	Staffing_Manager_GGID STRING,
