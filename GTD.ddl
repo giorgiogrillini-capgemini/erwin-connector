@@ -4,7 +4,6 @@ OPTIONS(
 	DESCRIPTION = "Test Dataset for erwin automation"
 );
 
-
 CREATE TABLE test_ggrillin_erwin.Absence_Request;
 
 CREATE TABLE test_ggrillin_erwin.Allocation
