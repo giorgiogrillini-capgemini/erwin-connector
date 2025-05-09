@@ -15,7 +15,7 @@ CREATE TABLE test_ggrillin_erwin.Allocation
 	Opportunity_ID STRING,
 	Global_Group_ID STRING,
 	PERNR_ID STRING,
-	Indirect_Cost_ID STRING,
+	Indirect_Cost_ID STRING OPTIONS(DESCRIPTION = "@sec1.simple-personal-text"),
 	Allocation_Name STRING,
 	Allocation_Desc STRING,
 	Allocation_Type STRING,
