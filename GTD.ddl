@@ -45,8 +45,7 @@ CREATE TABLE test_ggrillin_erwin.BL_Skillset
 (
 	BLSkillset_ID STRING NOT NULL,
 	Sub_Practice1_ID STRING,
-	Skillset_ID STRING,
-	SkillSet_ID STRING
+	Skillset_ID STRING
 );
 
 CREATE TABLE test_ggrillin_erwin.BL_Structure;
@@ -191,8 +190,6 @@ CREATE TABLE test_ggrillin_erwin.Project_Type
 	Project_Type_Start_Date STRING,
 	Project_Type_End_Date STRING
 );
-
-CREATE TABLE test_ggrillin_erwin.Role;
 
 CREATE TABLE test_ggrillin_erwin.Role
 (
