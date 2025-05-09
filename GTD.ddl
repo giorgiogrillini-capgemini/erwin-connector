@@ -17,7 +17,7 @@ CREATE TABLE test_ggrillin_erwin.Allocation
 	PERNR_ID STRING,
 	Indirect_Cost_ID STRING,
 	Allocation_Name STRING,
-	Allocation_Desc STRING,
+	Allocation_Desc STRING OPTIONS(DESCRIPTION = "@sec1.simple-personal-text" ),
 	Allocation_Type STRING,
 	Allocation_Status STRING,
 	Allocation_Start_Date STRING,
