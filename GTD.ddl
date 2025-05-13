@@ -12,6 +12,7 @@ CREATE TABLE test_ggrillin_erwin.Allocation
 	Project_Code STRING,
 	Office_Base_Location_ID STRING,
 	Opportunity_ID STRING,
+	TEST_ADD STRING,
 	Global_Group_ID STRING,
 	PERNR_ID STRING,
 	Allocation_Code STRING,
