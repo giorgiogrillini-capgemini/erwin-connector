@@ -12,7 +12,6 @@ CREATE TABLE test_ggrillin_erwin.Allocation
 	Allocation_ID STRING NOT NULL,
 	Project_Code STRING,
 	Office_Base_Location_ID STRING,
-	Allocation_Code STRING,
 	Opportunity_ID STRING,
 	Global_Group_ID STRING,
 	PERNR_ID STRING,
@@ -38,7 +37,8 @@ CREATE TABLE test_ggrillin_erwin.Allocation
 	Budgetted_Workload STRING,
 	Planned_Workload STRING,
 	Billing_Rate STRING,
-	Local_ID STRING
+	Local_ID STRING,
+	Allocation_Code STRING
 );
 
 CREATE TABLE test_ggrillin_erwin.BL_Skillset
