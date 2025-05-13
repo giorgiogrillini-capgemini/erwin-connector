@@ -14,6 +14,7 @@ CREATE TABLE test_ggrillin_erwin.Allocation
 	Opportunity_ID STRING,
 	Global_Group_ID STRING,
 	PERNR_ID STRING,
+	Allocation_Code STRING,
 	Indirect_Cost_ID STRING,
 	Allocation_Name STRING,
 	Allocation_Desc STRING,
@@ -37,7 +38,6 @@ CREATE TABLE test_ggrillin_erwin.Allocation
 	Planned_Workload STRING,
 	Billing_Rate STRING,
 	Local_ID STRING,
-	Allocation_Code STRING
 );
 
 CREATE TABLE test_ggrillin_erwin.BL_Skillset
