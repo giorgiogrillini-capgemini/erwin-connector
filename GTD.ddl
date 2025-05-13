@@ -38,6 +38,7 @@ CREATE TABLE test_ggrillin_erwin.Allocation
 	Planned_Workload STRING,
 	Billing_Rate STRING,
 	Local_ID STRING,
+	TEST_ADD STRING
 );
 
 CREATE TABLE test_ggrillin_erwin.BL_Skillset
